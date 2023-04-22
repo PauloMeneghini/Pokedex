@@ -7,6 +7,7 @@ app.set('view engine', 'html');
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
 
+
 async function ativacaoServidor() {
     app.get('/', function(req, res) {
         res.render('index')
