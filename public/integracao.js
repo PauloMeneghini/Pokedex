@@ -49,13 +49,13 @@ function searchPokemon() {
                 //imgPokemon = response.data.sprites.other.home.front_default;
                 imgPokemon = response.data.sprites.other["official-artwork"].front_default;
                 nome = response.data.forms[0].name
-                pokemonAbility1 = response.data.abilities[0].ability.name
-                pokemonAbility2 = response.data.abilities[1].ability.name
+                // pokemonAbility1 = response.data.abilities[0].ability.name
+                // pokemonAbility2 = response.data.abilities[1].ability.name
                 pokemonHP = response.data.stats[0].base_stat
                 pokemonAttack = response.data.stats[1].base_stat
                 pokemonDefense = response.data.stats[2].base_stat
-                pokemonSpecialAttack = response.data.stats[3].base_stat
-                pokemonSpecialDefense = response.data.stats[4].base_stat
+                // pokemonSpecialAttack = response.data.stats[3].base_stat
+                // pokemonSpecialDefense = response.data.stats[4].base_stat
                 pokemonSpeed = response.data.stats[5].base_stat
                 pokemonType = response.data.types
                 pokemonHeight = response.data.height
@@ -77,54 +77,71 @@ function searchPokemon() {
                     switch(pokemonType[i].type.name) {
                         case 'water':
                             type.children[i].style['background-color'] = '#6890f0'
+                            imagePokemon.parentElement.style['background-color'] = '#6890f0'
                             break
                         case 'fire':
                             type.children[i].style['background-color'] = '#f05030'
+                            imagePokemon.parentElement.style['background-color'] = '#f05030'
                             break
                         case 'grass':
                             type.children[i].style['background-color'] = '#78c850'
+                            imagePokemon.parentElement.style['background-color'] = '#78c850'
                             break
                         case 'electric':
                             type.children[i].style['background-color'] = '#f8d030'
+                            imagePokemon.parentElement.style['background-color'] = '#f8d030'
                             break
                         case 'psychic':
                             type.children[i].style['background-color'] = '#f85888'
+                            imagePokemon.parentElement.style['background-color'] = '#f85888'
                             break
                         case 'ice':
                             type.children[i].style['background-color'] = '#98d8d8'
+                            imagePokemon.parentElement.style['background-color'] = '#98d8d8'
                             break
                         case 'dragon':
                             type.children[i].style['background-color'] = '#7038f8'
+                            imagePokemon.parentElement.style['background-color'] = '#7038f8'
                             break
                         case 'dark':
                             type.children[i].style['background-color'] = '#705848'
+                            imagePokemon.parentElement.style['background-color'] = '#705848'
                             break
                         case 'normal':
                             type.children[i].style['background-color'] = '#a8a878'
+                            imagePokemon.parentElement.style['background-color'] = '#a8a878'
                             break
                         case 'fight':
                             type.children[i].style['background-color'] = '#903028'
+                            imagePokemon.parentElement.style['background-color'] = '#903028'
                             break
                         case 'flying':
                             type.children[i].style['background-color'] = '#a890f0'
+                            imagePokemon.parentElement.style['background-color'] = '#a890f0'
                             break
                         case 'poison':
                             type.children[i].style['background-color'] = '#a040a0'
+                            imagePokemon.parentElement.style['background-color'] = '#a040a0'
                             break
                         case 'ground':
                             type.children[i].style['background-color'] = '#e0c068'
+                            imagePokemon.parentElement.style['background-color'] = '#e0c068'
                             break
                         case 'rock':
                             type.children[i].style['background-color'] = '#b8a038'
+                            imagePokemon.parentElement.style['background-color'] = '#b8a038'
                             break
                         case 'ghost':
                             type.children[i].style['background-color'] = '#705898'
+                            imagePokemon.parentElement.style['background-color'] = '#705898'
                             break
                         case 'steel':
                             type.children[i].style['background-color'] = '#b8b8d0'
+                            imagePokemon.parentElement.style['background-color'] = '#b8b8d0'
                             break
                         case '???':
                             type.children[i].style['background-color'] = '#68a090'
+                            imagePokemon.parentElement.style['background-color'] = '#68a090'
                             break
                     }
                 }
