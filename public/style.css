@@ -1,3 +1,147 @@
+@font-face {
+    font-family: Poppins-Regular;
+    src: url(../public/fonts/Poppins/Poppins-Regular.ttf);
+}
+
+@font-face {
+font-family: Poppins-Bold;
+src: url(../public/fonts/Poppins/Poppins-Bold.ttf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Poppins-Regular;
+}
+
+body{
+    background-color: #202020;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+p{
+    color: white
+}
+
+#labelPokemonName{
+    font-size: 22px;
+    color: white;
+    margin: 15px 0px;
+}
+
+#inputPokemonName{
+    width: 400px;
+    height: 40px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 16px;
+}
+
+#searchButton{
+    width: 200px;
+    height: 50px;
+    border-radius: 50px;
+    border: none;
+    background-color: orange;
+    margin: 15px 0px;
+    font-size: 18px;
+    font-family: Poppins-Bold;
+}
+#searchButton:hover{
+    cursor: pointer;
+    background-color: #202020;
+    border: 1px solid orange;
+    color: orange;
+    transition: .2s;
+}
+
+.pokedex{
+    display: none;
+}
+
+.imgPokedex{
+    background-color: orange;
+    width: 400px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
 #imagePokemon{
     border: none;
+}
+
+.status{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#hp, #attack, #defense, #specialAttack, #specialDefense, #speed{
+    margin: 10px 0px 0px 0px;
+}
+
+#name{
+    font-size: 22px;
+    font-family: Poppins-Bold;
+    margin: 15px 0px;
+}
+
+.abilities{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.progressBar{
+    border: 1px solid #7e7e7e;
+    width: 70%;
+    border-radius: 50px;
+    color: white;
+    position: relative;
+    margin: 5px 0px;
+}
+.progressBar p{
+    float: left;
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    font-size: 14px;
+}
+.valueProgressBar{
+    height:24px;
+    transition: width 10s;
+    border-radius: 50px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#valueProgressBarHP{
+    background-color:red;
+}
+
+#valueProgressBarAttack{
+    background-color: orange;
+}
+
+#valueProgressBarDefense{
+    background-color: blue;
+}
+
+#valueProgressBarSpecialAttack{
+    background-color: darkorange;
+}
+
+#valueProgressBarSpecialDefense{
+    background-color: darkblue;
+}
+
+#valueProgressBarSpeed{
+    background-color: green;
 }
