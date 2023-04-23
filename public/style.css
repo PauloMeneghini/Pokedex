@@ -82,8 +82,19 @@ p{
     align-items: center;
     flex-direction: column;
 }
+
+.divHP, .divAttack, .divDefense, .divSpeed{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 25% 75%;
+}
 #hp, #attack, #defense, #specialAttack, #specialDefense, #speed{
-    margin: 10px 0px 0px 0px;
+    /* margin: 10px 0px 0px 0px; */
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-right: 15px;
 }
 
 #name{
@@ -99,7 +110,7 @@ p{
 
 .progressBar{
     border: 1px solid #7e7e7e;
-    width: 70%;
+    width: 100%;
     border-radius: 50px;
     color: white;
     position: relative;
@@ -144,4 +155,42 @@ p{
 
 #valueProgressBarSpeed{
     background-color: green;
+}
+
+#type{
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 80%;
+    justify-items: center;
+}
+
+#type p{
+    padding: 5px 30px;
+    background-color: orange;
+    border-radius: 50px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.info{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 60%;
+    margin: 15px 0px;
+}
+
+.info p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #7e7e7e;
+}
+
+#valueHeight, #valueWeight{
+    font-size: 22px;
+    font-family: Poppins-Bold;
+    color: white;
 }

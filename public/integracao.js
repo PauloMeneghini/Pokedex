@@ -11,8 +11,8 @@ function searchPokemon() {
 
         imagePokemon = document.getElementById('imagePokemon')
         nomePokemon = document.getElementById('name')
-        ability1 = document.getElementById('ability1')
-        ability2 = document.getElementById('ability2')
+        // ability1 = document.getElementById('ability1')
+        // ability2 = document.getElementById('ability2')
 
         hp = document.getElementById('hp')
 
@@ -20,19 +20,21 @@ function searchPokemon() {
 
         defense = document.getElementById('defense')
 
-        specialAttack = document.getElementById('specialAttack')
-        specialDefense = document.getElementById('specialDefense')
+        // specialAttack = document.getElementById('specialAttack')
+        // specialDefense = document.getElementById('specialDefense')
         speed = document.getElementById('speed')
         type = document.getElementById('type')
-        height = document.getElementById('height')
-        weight = document.getElementById('weight')
+        height = document.getElementById('valueHeight')
+        weight = document.getElementById('valueWeight')
     
         document.querySelector('.progressBar').innerHTML = ''
         document.querySelector('.progressBar.attack').innerHTML = ''
         document.querySelector('.progressBar.defense').innerHTML = ''
-        document.querySelector('.progressBar.specialAttack').innerHTML = ''
-        document.querySelector('.progressBar.specialDefense').innerHTML  = ''
+        // document.querySelector('.progressBar.specialAttack').innerHTML = ''
+        // document.querySelector('.progressBar.specialDefense').innerHTML  = ''
         document.querySelector('.progressBar.speed').innerHTML = ''
+        type.innerHTML = ''
+        type.style['grid-template-columns'] = '1fr'
 
 
         let url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
@@ -59,19 +61,79 @@ function searchPokemon() {
                 pokemonHeight = response.data.height
                 pokemonWeight = response.data.weight
     
-                pokemonTypes = ""
-
-                for(i = 0; i < pokemonType.length; i++) {
-                    console.log(pokemonType[i].type.name)
-                    pokemonTypes += `${pokemonType[i].type.name} `
-                }
-                
                 imagePokemon.setAttribute('src', imgPokemon);
-
+                
                 nomePokemon.innerHTML = nome[0].toUpperCase() + nome.substring(1)
+                
+                for(i = 0; i < pokemonType.length; i++){
+                    //type.innerHTML = '<p>' + pokemonTypes[0].toUpperCase() + pokemonTypes.substring(1) + '</p>'
+                    console.log(pokemonType[i].type.name[0].toUpperCase() + pokemonType[i].type.name.substring(1))
+                    type.innerHTML += '<p>' + pokemonType[i].type.name[0].toUpperCase() + pokemonType[i].type.name.substring(1) + '</p>'
 
-                ability1.innerHTML = `Ability 1: ${pokemonAbility1}`
-                ability2.innerHTML = `Ability 2: ${pokemonAbility2}`
+                    if(pokemonType.length > 1){
+                        type.style['grid-template-columns'] = 'repeat(2, 1fr)'
+                    }
+
+                    switch(pokemonType[i].type.name) {
+                        case 'water':
+                            type.children[i].style['background-color'] = '#6890f0'
+                            break
+                        case 'fire':
+                            type.children[i].style['background-color'] = '#f05030'
+                            break
+                        case 'grass':
+                            type.children[i].style['background-color'] = '#78c850'
+                            break
+                        case 'electric':
+                            type.children[i].style['background-color'] = '#f8d030'
+                            break
+                        case 'psychic':
+                            type.children[i].style['background-color'] = '#f85888'
+                            break
+                        case 'ice':
+                            type.children[i].style['background-color'] = '#98d8d8'
+                            break
+                        case 'dragon':
+                            type.children[i].style['background-color'] = '#7038f8'
+                            break
+                        case 'dark':
+                            type.children[i].style['background-color'] = '#705848'
+                            break
+                        case 'normal':
+                            type.children[i].style['background-color'] = '#a8a878'
+                            break
+                        case 'fight':
+                            type.children[i].style['background-color'] = '#903028'
+                            break
+                        case 'flying':
+                            type.children[i].style['background-color'] = '#a890f0'
+                            break
+                        case 'poison':
+                            type.children[i].style['background-color'] = '#a040a0'
+                            break
+                        case 'ground':
+                            type.children[i].style['background-color'] = '#e0c068'
+                            break
+                        case 'rock':
+                            type.children[i].style['background-color'] = '#b8a038'
+                            break
+                        case 'ghost':
+                            type.children[i].style['background-color'] = '#705898'
+                            break
+                        case 'steel':
+                            type.children[i].style['background-color'] = '#b8b8d0'
+                            break
+                        case '???':
+                            type.children[i].style['background-color'] = '#68a090'
+                            break
+                    }
+                }
+
+                height.innerHTML = pokemonHeight * 10
+                weight.innerHTML = pokemonWeight / 10
+
+                // ability1.innerHTML = `Ability 1: ${pokemonAbility1}`
+                // ability2.innerHTML = `Ability 2: ${pokemonAbility2}`
 
                 hp.innerHTML = `HP:`
                 valueHP = (pokemonHP * 100) / 300
@@ -92,17 +154,17 @@ function searchPokemon() {
                 document.getElementById('valueProgressBarDefense').style.width = valueDefense + '%'
                 document.querySelector('.progressBar.defense').innerHTML += `<p>${pokemonDefense} / 300</p>`
 
-                specialAttack.innerHTML = `Special Attack:`
-                valueSpecialAttack = (pokemonSpecialAttack * 100) / 300
-                document.querySelector('.progressBar.specialAttack').innerHTML += `<div class="valueProgressBar" id="valueProgressBarSpecialAttack"></div>`
-                document.getElementById('valueProgressBarSpecialAttack').style.width = valueSpecialAttack + '%'
-                document.querySelector('.progressBar.specialAttack').innerHTML += `<p>${pokemonSpecialAttack} / 300</p>`
+                // specialAttack.innerHTML = `Special Attack:`
+                // valueSpecialAttack = (pokemonSpecialAttack * 100) / 300
+                // document.querySelector('.progressBar.specialAttack').innerHTML += `<div class="valueProgressBar" id="valueProgressBarSpecialAttack"></div>`
+                // document.getElementById('valueProgressBarSpecialAttack').style.width = valueSpecialAttack + '%'
+                // document.querySelector('.progressBar.specialAttack').innerHTML += `<p>${pokemonSpecialAttack} / 300</p>`
 
-                specialDefense.innerHTML = `Special Defense:`
-                valueSpecialDefense = (pokemonSpecialDefense * 100) / 300
-                document.querySelector('.progressBar.specialDefense').innerHTML += `<div class="valueProgressBar" id="valueProgressBarSpecialDefense"></div>`
-                document.getElementById('valueProgressBarSpecialDefense').style.width = valueSpecialDefense + '%'
-                document.querySelector('.progressBar.specialDefense').innerHTML += `<p>${pokemonSpecialDefense} / 300</p>`
+                // specialDefense.innerHTML = `Special Defense:`
+                // valueSpecialDefense = (pokemonSpecialDefense * 100) / 300
+                // document.querySelector('.progressBar.specialDefense').innerHTML += `<div class="valueProgressBar" id="valueProgressBarSpecialDefense"></div>`
+                // document.getElementById('valueProgressBarSpecialDefense').style.width = valueSpecialDefense + '%'
+                // document.querySelector('.progressBar.specialDefense').innerHTML += `<p>${pokemonSpecialDefense} / 300</p>`
 
                 speed.innerHTML = `Speed:`
                 valueSpeed = (pokemonSpeed * 100) / 300
@@ -110,9 +172,6 @@ function searchPokemon() {
                 document.getElementById('valueProgressBarSpeed').style.width = valueSpeed + '%'
                 document.querySelector('.progressBar.speed').innerHTML += `<p>${pokemonSpeed} / 300</p>`
 
-                type.innerHTML = `type: ${pokemonTypes}`
-                height.innerHTML = `height: ${pokemonHeight}`
-                weight.innerHTML = `weight: ${pokemonWeight}`
 
             })
             .catch(error => {
